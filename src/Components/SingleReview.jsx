@@ -7,7 +7,7 @@ import {useRef} from 'react';
 
 
 function SingleReview (props) {
-    const ref = useRef(null);
+    const commentsSection = useRef();
     const { review_id } = useParams();
     const [isLoading, setIsLoading] = useState(true)
 
@@ -22,13 +22,23 @@ function SingleReview (props) {
 
     if(isLoading) return<p> ... Loading </p>
 
-
+    // const scrollHandler = (element) => {
+    //     console.log(element.current)
+    //     window.scrollTo({ top: element.current.offsetTop})
+    //   };
+      const scrollToBottom = () => {
+        window.scrollTo({
+          top: 1100,
+        });
+      };
+    
 
     const singleReviewArray = singleReview
     console.log(singleReview)
     return (
         <main>    
         <ul className="Review">
+            <button onClick={scrollToBottom}>View Comments</button> 
            <h2>
             {singleReviewArray.title}
             </h2> 
@@ -44,7 +54,7 @@ function SingleReview (props) {
             <h4>Title {singleReviewArray.title} </h4>
            <h4> Votes: {singleReviewArray.votes} </h4>
         </ul>
-        <div ref={ref}>
+        <div ref={commentsSection}>
             <header>
                 <h4>COMMENTS</h4>
             </header>
