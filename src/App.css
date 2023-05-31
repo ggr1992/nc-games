@@ -28,9 +28,23 @@
   font: bold 20px/1.5 Helvetica, Verdana, sans-serif;
   float: left;
   position: center;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
   padding: 10px;
   overflow: auto;
   background: #0c0e1a;
+  color: whitesmoke;
+}
+
+.Comments {
+  margin: 15px;
+  font: bold 20px/1.5 Helvetica, Verdana, sans-serif;
+  float: left;
+  position: center;
+  margin-bottom: 10px;
+  width: 360px;
+  height: 500px;
+  padding: 0px;
+  overflow: auto;
+  background: #01051a;
   color: whitesmoke;
 }

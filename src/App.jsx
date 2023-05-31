@@ -5,7 +5,7 @@ import Reviews from './Components/Reviews'
 import { useState } from 'react'
 import SingleReview from './Components/SingleReview'
 import { Routes, Route } from 'react-router-dom';
-import Home from './Components/Home'
+import Comments from './Components/Comments'
 
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
      <Routes>
         <Route path='/' element={<Reviews reviews={reviews} setReviews={setReviews}/>} />
         <Route path="/reviews/:review_id" element={<SingleReview />} />
-        
+        <Route path="/reviews/:review_id/comments" element={<Comments/>} />
       </Routes>
 
     </>

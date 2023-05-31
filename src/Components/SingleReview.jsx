@@ -1,14 +1,18 @@
 import { useState,useEffect } from "react";
 import { fetchSingleReview } from "./api";
 import { useParams } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import Comments from "./Comments";
+import {useRef} from 'react';
 
 
 function SingleReview (props) {
+    const ref = useRef(null);
     const { review_id } = useParams();
     const [isLoading, setIsLoading] = useState(true)
 
 
-    const [singleReview,setSingleReview] = useState([])
+    const [singleReview,setSingleReview] = useState('')
     useEffect(() => {
         fetchSingleReview(review_id).then((data) => {  
            setSingleReview(data.review)          
@@ -18,8 +22,10 @@ function SingleReview (props) {
 
     if(isLoading) return<p> ... Loading </p>
 
+
+
     const singleReviewArray = singleReview
-    
+    console.log(singleReview)
     return (
         <main>    
         <ul className="Review">
@@ -36,12 +42,18 @@ function SingleReview (props) {
            <h4>Review</h4>
            <h4> {singleReviewArray.review_body} </h4> 
             <h4>Title {singleReviewArray.title} </h4>
-           <h4> Votes: {singleReviewArray.votes} </h4> 
+           <h4> Votes: {singleReviewArray.votes} </h4>
         </ul>
-
-        </main>
+        <div ref={ref}>
+            <header>
+                <h4>COMMENTS</h4>
+            </header>
+        <Comments/>     
+        </div>
+        </main >
     )
 }
+
 
 export default SingleReview
 
