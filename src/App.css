@@ -22,3 +22,15 @@
   color: whitesmoke;
 
 }
+
+.Review {
+  margin: 25px;
+  font: bold 20px/1.5 Helvetica, Verdana, sans-serif;
+  float: left;
+  position: center;
+  margin-bottom: 10px;
+  padding: 10px;
+  overflow: auto;
+  background: #0c0e1a;
+  color: whitesmoke;
+}
