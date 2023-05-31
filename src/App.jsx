@@ -19,7 +19,6 @@ function App() {
      <Routes>
         <Route path='/' element={<Reviews reviews={reviews} setReviews={setReviews}/>} />
         <Route path="/reviews/:review_id" element={<SingleReview />} />
-        <Route path="/reviews/:review_id/comments" element={<Comments/>} />
       </Routes>
 
     </>

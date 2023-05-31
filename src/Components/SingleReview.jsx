@@ -22,13 +22,10 @@ function SingleReview (props) {
 
     if(isLoading) return<p> ... Loading </p>
 
-    // const scrollHandler = (element) => {
-    //     console.log(element.current)
-    //     window.scrollTo({ top: element.current.offsetTop})
-    //   };
+
       const scrollToBottom = () => {
         window.scrollTo({
-          top: 1100,
+          top: 1050,
         });
       };
     

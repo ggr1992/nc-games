@@ -26,7 +26,6 @@
 .Review {
   margin: 25px;
   font: bold 20px/1.5 Helvetica, Verdana, sans-serif;
-  float: left;
   position: center;
   margin-bottom: 30px;
   padding: 10px;
@@ -35,16 +34,23 @@
   color: whitesmoke;
 }
 
+.comments-section {
+  display: grid;
+  grid-template-columns:1fr 1fr;
+  justify-content: center;
+  align-items: flex-start;
+}
+
 .Comments {
-  margin: 15px;
+  display: grid;
+  grid-template-columns:1fr 1fr;
+  margin: 25px;
   font: bold 20px/1.5 Helvetica, Verdana, sans-serif;
   float: left;
   position: center;
-  margin-bottom: 10px;
-  width: 360px;
-  height: 500px;
-  padding: 0px;
+  margin-bottom: 30px;
+  padding: 10px;
   overflow: auto;
-  background: #01051a;
+  background: #04000f;
   color: whitesmoke;
 }
