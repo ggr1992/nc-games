@@ -52,8 +52,8 @@ function SingleReview (props) {
            <h4> Votes: {singleReviewArray.votes} </h4>
         </ul>
         <div ref={commentsSection}>
-            <header>
-                <h4>COMMENTS</h4>
+            <header >
+                <h4 id="CommentHeader">COMMENTS</h4>
             </header>
         <Comments/>     
         </div>
