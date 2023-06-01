@@ -14,6 +14,15 @@ export const fetchReviews = () => {
       .catch((err) => console.log(err));
   }
 
+  export const fetchComments = (review_id) => {
+    return reviewApi
+      .get(`/api/reviews/${review_id}/comments`)
+      .then((res) => {
+        return res.data;
+      })
+      .catch((err) => console.log(err));
+    }
+    
   export const fetchSingleReview = (review_id) => {
     return reviewApi
     .get(`/api/reviews/${review_id}`)
