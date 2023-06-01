@@ -31,7 +31,7 @@ function SingleReview (props) {
     
 
     const singleReviewArray = singleReview
-    console.log(singleReview)
+    
     return (
         <main>    
         <ul className="Review">
