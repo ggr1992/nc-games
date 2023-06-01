@@ -31,3 +31,16 @@ export const fetchReviews = () => {
     })
     .catch((err) => console.log(err));
   }
+
+  export const postComment = (review_id,username,body) => {
+
+    const postBody = {
+      username: username,
+      body: body
+    }
+    
+    return reviewApi
+    .post(`/api/reviews/${review_id}/comments`,postBody).then(({data}) => {
+      return data.comment
+    })
+  }

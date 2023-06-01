@@ -1,6 +1,7 @@
 import { useEffect,useState } from "react"
 import { useParams } from 'react-router-dom';
 import { fetchComments } from "./api";
+import NewComment from "./PostComment";
 
 function Comments (props) {
  
@@ -16,6 +17,7 @@ function Comments (props) {
     if(comments) {
         return (
             <> 
+            <NewComment/>
             <ul className="comment-section">
                 {comments.map((comment)=> {
                     return <li className="Comments" key={comment.comment_id}>
