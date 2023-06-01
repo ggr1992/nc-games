@@ -10,35 +10,35 @@ function Comments (props) {
     useEffect(() => {
         fetchComments(review_id).then(({comments}) => {  
            setComments(comments)
-        });
+        });    
     }, [review_id]);
-    
+
     const handleVote = (increment,ID) => {
         setComments((prevComments) =>
           prevComments.map((comment) => {
             if (comment.comment_id === ID) {
-              return { ...comment, votes: comment.votes + (increment ? 1 : -1) };
+                return { ...comment, votes: comment.votes + (increment ? 1 : -1) }              
             }
             return comment
-          })
-
-        );
-      };
-
+        })
+        );  
+    };
+    
     if(comments) {
         return (
             <> 
-            <ul className="comment-section">
+            <ul className="comment-section" >
                 {comments.map((comment)=> {
-                    return <li className="Comments" key={comment.comment_id}>
+                    return <li className="Comments" key={comment.comment_id }>
                          <h4>Author: </h4>
                          <h3>  {comment.author}</h3>
                          <h4>Comment:</h4>
                          <h3>   {comment.body}</h3>
                          <h4>Votes: </h4>                      
                          <h3>   {comment.votes}</h3>  
-                         <button onClick={() => handleVote(true,comment.comment_id)}>Increase Vote</button>
-                         <button onClick={() => handleVote(false,comment.comment_id)}>Decrease Vote</button>                  
+                         <button  onClick={() => handleVote(true,comment.comment_id)} >Increase Vote</button>
+                         <button  onClick={() => handleVote(false,comment.comment_id)}>Decrease Vote</button>                  
+                         
                     </li>
     
                 })}

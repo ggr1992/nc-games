@@ -1,10 +1,10 @@
 import { useState,useEffect } from "react";
 import { fetchSingleReview } from "./api";
 import { useParams } from 'react-router-dom';
-import { Link } from "react-router-dom";
+import { patchVotesIncrease } from "./api";
+import { patchVotesDecrease } from "./api";
 import Comments from "./Comments";
 import {useRef} from 'react';
-
 
 function SingleReview (props) {
   const commentsSection = useRef();
@@ -29,11 +29,20 @@ function SingleReview (props) {
       });
     };
     
-  const updateVote = (increment) => {
-    setVoteCount((prevCount) => prevCount + (increment ? 1 : -1));
+  const updateVoteUp = () => {
+    setVoteCount((prevCount) => prevCount +  1 );
+    patchVotesIncrease(review_id).then((votesCount) => {
+      setVoteCount(votesCount)
+  })
   };
-    
-    
+
+  const updateVoteDown = () => {
+    setVoteCount((prevCount) => prevCount - 1 );
+    patchVotesDecrease(review_id).then((votesCount) => {
+      setVoteCount(votesCount)
+  })
+  };
+      
     const singleReviewArray = singleReview
     return (
       <main>    
@@ -52,8 +61,8 @@ function SingleReview (props) {
            <h4>Review</h4>
            <h4> {singleReviewArray.review_body} </h4> 
             <h4>Title {singleReviewArray.title} </h4>
-            <button onClick={() => updateVote(true)}>Increase Vote</button>
-           <button onClick={() => updateVote(false)}>Decrease Vote</button>
+            <button onClick={() => updateVoteUp()}>Increase Vote</button>
+           <button onClick={() => updateVoteDown()}>Decrease Vote</button>
            <h4> Votes: {voteCount} </h4>
         </ul>
         <div ref={commentsSection}>
@@ -65,7 +74,6 @@ function SingleReview (props) {
         </main >
     )
 }
-
 
 export default SingleReview
 
