@@ -53,3 +53,17 @@ export const fetchReviews = () => {
          if(err) return err.message
         });
       }
+
+  export const postComment = (review_id,username,body) => {
+
+    const postBody = {
+      author: username,
+      body: body
+    }
+    
+    return reviewApi
+    .post(`/api/reviews/${review_id}/comments`,postBody).then(({data}) => {
+      return data.comment
+    })
+
+  }
