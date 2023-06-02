@@ -18,7 +18,7 @@ export const fetchReviews = () => {
     return reviewApi
       .get(`/api/reviews/${review_id}/comments`)
       .then((res) => {
-        return res.data;
+        return res.data;       
       })
       .catch((err) => console.log(err));
     }
@@ -31,6 +31,28 @@ export const fetchReviews = () => {
     })
     .catch((err) => console.log(err));
   }
+
+  export const patchVotesIncrease = (review_id) => {
+    return reviewApi
+      .patch(`/api/reviews/${review_id}`,{inc_votes: +1})
+      .then((res) => {     
+        return res.data.review.votes;       
+      })
+      .catch((err) => {
+       if(err) return err.message
+      });
+    }
+
+    export const patchVotesDecrease = (review_id) => {
+      return reviewApi
+        .patch(`/api/reviews/${review_id}`,{inc_votes: - 1})
+        .then((res) => {
+          return res.data.review.votes;       
+        })
+        .catch((err) => {
+         if(err) return err.message
+        });
+      }
 
   export const postComment = (review_id,username,body) => {
 
