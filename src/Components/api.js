@@ -57,7 +57,7 @@ export const fetchReviews = () => {
   export const postComment = (review_id,username,body) => {
 
     const postBody = {
-      username: username,
+      author: username,
       body: body
     }
     

@@ -28,7 +28,7 @@ function Comments (props) {
     if(comments) {
         return (
             <> 
-            <NewComment/>
+            <NewComment setComments={setComments}/>
             <ul className="comment-section">
                 {comments.map((comment)=> {
                     return <li className="Comments" key={comment.comment_id }>
@@ -49,7 +49,8 @@ function Comments (props) {
         )
     }   else {
         return (
-            <>
+            <>  
+               <NewComment setComments={setComments}/>       
             <p>No Comments</p>
             </>
         )
