@@ -45,7 +45,7 @@
   display: grid;
   grid-template-columns:1fr 1fr;
   margin: 25px;
-  font: bold 15px/1.5 Helvetica, Verdana, sans-serif;
+  font: bold 18px/1.5 Helvetica, Verdana, sans-serif;
   float: left;
   position: center;
   margin-bottom: 10px;
@@ -66,9 +66,13 @@
   width: 40%;
   height: 50px;
   padding: 10px;
-  font-size: 18;
+  font-size: large;
   color: #ededed;
 }
 #submitButton {
   text-align: center;
+}
+
+#SubmitNewCommentHeader{
+  font-size: x-large;
 }
