@@ -67,7 +67,8 @@
   height: 50px;
   padding: 10px;
   font-size: large;
-  color: #ededed;
+  color: #ffffff;
+  background-color: #01051a;
 }
 #submitButton {
   text-align: center;

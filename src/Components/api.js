@@ -65,7 +65,5 @@ export const fetchReviews = () => {
     .post(`/api/reviews/${review_id}/comments`,postBody).then(({data}) => {
       return data.comment
     })
-    .catch((err) => {
-     if(err) return err.message
-     });
+
   }
