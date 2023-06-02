@@ -34,18 +34,22 @@ export const fetchReviews = () => {
 
   export const patchVotesIncrease = (review_id) => {
     return reviewApi
-      .patch(`/api/reviews/${review_id}`,{inc_votes: 1})
+      .patch(`/api/reviews/${review_id}`,{inc_votes: +1})
       .then((res) => {     
         return res.data.review.votes;       
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+       if(err) return err.message
+      });
     }
 
     export const patchVotesDecrease = (review_id) => {
       return reviewApi
-        .patch(`/api/reviews/${review_id}`,{inc_votes: -1})
+        .patch(`/api/reviews/${review_id}`,{inc_votes: - 1})
         .then((res) => {
           return res.data.review.votes;       
         })
-        .catch((err) => console.log(err));
+        .catch((err) => {
+         if(err) return err.message
+        });
       }

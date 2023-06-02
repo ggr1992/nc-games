@@ -25,22 +25,20 @@ function SingleReview (props) {
     
     const scrollToBottom = () => {
       window.scrollTo({
-        top: 1050,
+        top: 1175,
       });
     };
     
   const updateVoteUp = () => {
-    setVoteCount((prevCount) => prevCount +  1 );
     patchVotesIncrease(review_id).then((votesCount) => {
       setVoteCount(votesCount)
   })
   };
 
   const updateVoteDown = () => {
-    setVoteCount((prevCount) => prevCount - 1 );
     patchVotesDecrease(review_id).then((votesCount) => {
       setVoteCount(votesCount)
-  })
+      })  
   };
       
     const singleReviewArray = singleReview
@@ -62,6 +60,8 @@ function SingleReview (props) {
            <h4> {singleReviewArray.review_body} </h4> 
             <h4>Title {singleReviewArray.title} </h4>
             <button onClick={() => updateVoteUp()}>Increase Vote</button>
+            <br></br>
+            <br></br>
            <button onClick={() => updateVoteDown()}>Decrease Vote</button>
            <h4> Votes: {voteCount} </h4>
         </ul>
